@@ -33,6 +33,8 @@ do ->
   _param_attrs = EL_PLACE_HOLDER.attributes
   ### 表示件数 ###
   LIMIT_OF_SUGGESTIONS = parseInt(_param_attrs.getNamedItem('data-limit-suggestions').textContent, 10) || 4
+  TITLE_OF_SUGGESTIONS = _param_attrs.getNamedItem('data-title-suggestions').textContent || 'あわせて読みたい'
+
   ### oEmbedを使ったブログカードスタイル ###
   ENABLE_EMBED_WIDGET_STYLE = true
   ### ブックマーク数表示(ENABLE_EMBED_WIDGET_STYLEが有効だと無視されます) ###
@@ -51,7 +53,7 @@ do ->
       .map (rel) -> "<option value=\"#{rel}\" #{if rel == category_name then 'selected'} >#{rel}</option>"
     container.innerHTML =
       """ <div class=\"cina--reccomend__title--wrapper\">
-        <h3 class=\"cina--reccomend__title\">あわせて読みたい</h3>
+        <h3 class=\"cina--reccomend__title\">#{TITLE_OF_SUGGESTIONS}</h3>
         <div class=\"cina--reccomend__category--dd-widget\">
           <label for=\"cina--categories__select\">カテゴリー
             <select id=\"cina--categories__select\">
