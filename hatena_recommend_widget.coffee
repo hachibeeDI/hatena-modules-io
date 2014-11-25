@@ -27,8 +27,12 @@ do ->
 
   ### ウィジェットを配置した要素のid ###
   ID_OF_PLACEHOLDER = 'relate_entry'
+  EL_PLACE_HOLDER = document.getElementById ID_OF_PLACEHOLDER
+  return unless EL_PLACE_HOLDER
+
+  _param_attrs = EL_PLACE_HOLDER.attributes
   ### 表示件数 ###
-  LIMIT_OF_SUGGESTIONS = 4
+  LIMIT_OF_SUGGESTIONS = parseInt(_param_attrs.getNamedItem('data-limit-suggestions').textContent, 10) || 4
   ### oEmbedを使ったブログカードスタイル ###
   ENABLE_EMBED_WIDGET_STYLE = true
   ### ブックマーク数表示(ENABLE_EMBED_WIDGET_STYLEが有効だと無視されます) ###
@@ -38,7 +42,6 @@ do ->
 
   BLOG_URL = window.location.origin
 
-  return unless document.getElementById ID_OF_PLACEHOLDER
   google.load("feeds", "1")
 
 
