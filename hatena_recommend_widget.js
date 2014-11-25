@@ -27,11 +27,17 @@ THE SOFTWARE.
   (function() {
 
     /* ウィジェットを配置した要素のid */
-    var BLOG_URL, ENABLE_BOOKMARKED_COUNT, ENABLE_EMBED_WIDGET_STYLE, ENABLE_TWEETBUZZED_COUNT, ID_OF_PLACEHOLDER, LIMIT_OF_SUGGESTIONS, createBookmarkedCount, createEachSuggestion, createRecommendHtmls, createTweetbuzzCount, initializeRealateEntry, loadAllEntry, loadRealateEntry, _prepareWidgetEvents, _prepareWidgetWrapper;
+    var BLOG_URL, EL_PLACE_HOLDER, ENABLE_BOOKMARKED_COUNT, ENABLE_EMBED_WIDGET_STYLE, ENABLE_TWEETBUZZED_COUNT, ID_OF_PLACEHOLDER, LIMIT_OF_SUGGESTIONS, TITLE_OF_SUGGESTIONS, createBookmarkedCount, createEachSuggestion, createRecommendHtmls, createTweetbuzzCount, initializeRealateEntry, loadAllEntry, loadRealateEntry, _param_attrs, _prepareWidgetEvents, _prepareWidgetWrapper;
     ID_OF_PLACEHOLDER = 'relate_entry';
+    EL_PLACE_HOLDER = document.getElementById(ID_OF_PLACEHOLDER);
+    if (!EL_PLACE_HOLDER) {
+      return;
+    }
+    _param_attrs = EL_PLACE_HOLDER.attributes;
 
     /* 表示件数 */
-    LIMIT_OF_SUGGESTIONS = 4;
+    LIMIT_OF_SUGGESTIONS = parseInt(_param_attrs.getNamedItem('data-limit-suggestions').textContent, 10) || 4;
+    TITLE_OF_SUGGESTIONS = _param_attrs.getNamedItem('data-title-suggestions').textContent || 'あわせて読みたい';
 
     /* oEmbedを使ったブログカードスタイル */
     ENABLE_EMBED_WIDGET_STYLE = true;
@@ -42,9 +48,6 @@ THE SOFTWARE.
     /* ツイート数表示(同上) */
     ENABLE_TWEETBUZZED_COUNT = true;
     BLOG_URL = window.location.origin;
-    if (!document.getElementById(ID_OF_PLACEHOLDER)) {
-      return;
-    }
     google.load("feeds", "1");
     _prepareWidgetWrapper = function(category_name) {
       var container, l, relate_categories;
@@ -61,7 +64,7 @@ THE SOFTWARE.
       })()).map(function(rel) {
         return "<option value=\"" + rel + "\" " + (rel === category_name ? 'selected' : void 0) + " >" + rel + "</option>";
       });
-      return container.innerHTML = " <div class=\"cina--reccomend__title--wrapper\">\n  <h3 class=\"cina--reccomend__title\">あわせて読みたい</h3>\n  <div class=\"cina--reccomend__category--dd-widget\">\n    <label for=\"cina--categories__select\">カテゴリー\n      <select id=\"cina--categories__select\">\n      <option value=\"all\">全て</option>\n      " + (relate_categories.join('')) + "\n      </select>\n    </label>\n    <button class=\"cina--reccomend__refresh-button btn\">更新</button>\n  </div>\n</div>\n<ul class=\"cina--recommend__ul\" style=\"padding-left:0;\">\n</ul>";
+      return container.innerHTML = " <div class=\"cina--reccomend__title--wrapper\">\n  <h3 class=\"cina--reccomend__title\">" + TITLE_OF_SUGGESTIONS + "</h3>\n  <div class=\"cina--reccomend__category--dd-widget\">\n    <label for=\"cina--categories__select\">カテゴリー\n      <select id=\"cina--categories__select\">\n      <option value=\"all\">全て</option>\n      " + (relate_categories.join('')) + "\n      </select>\n    </label>\n    <button class=\"cina--reccomend__refresh-button btn\">更新</button>\n  </div>\n</div>\n<ul class=\"cina--recommend__ul\" style=\"padding-left:0;\">\n</ul>";
     };
     _prepareWidgetEvents = function() {
       var _load;
