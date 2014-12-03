@@ -630,22 +630,52 @@ archive-module-month-title
   visibility: hidden
 
 
-.btn
+button-style-mixin()
   display inline-block
   *display inline
   *zoom 1
-  padding 4px 10px 4px
-  margin-bottom 0
+  border-radius: 2px
   line-height 18px
   text-align center
   vertical-align middle
-  border-radius: 2px
+  cursor pointer
+  text-decoration none
+
+
+.hatena-follow-button
+  button-style-mixin()
+  padding: 2px 5px !important
+  padding-left: 7px !important
+  width: auto!important
+  text-align: center!important
+  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  color: #454545 !important
+  background: #B7E7D1 !important
+  border: 0 none!important
+  border-bottom: 3px solid #52B2A7 !important
+  border-right: 1px solid #275E6E !important
+  &:hover
+    background: darken(@background, 15%)!important
+    border-bottom-color: darken(#52B2A7, 10%) !important
+    color: @color !important
+  &:before
+    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    font-weight: bold
+    font-size: 12px
+    padding-right: 3px
+    color: @color
+    content: '+'
+    vertical-align: top
+
+
+.btn
+  button-style-mixin()
+  padding 4px 10px 4px
+  margin-bottom 0
   -moz-background-clip padding
   -webkit-background-clip padding-box
   background-clip padding-box
-  cursor pointer
   font-size 12px
-  text-decoration none
   font-weight bold
   color white
   background-color #766769
@@ -912,19 +942,13 @@ blockquote
     color #999999
 
 .leave-comment-title
-  display inline-block
-  *display inline
-  *zoom 1
+  button-style-mixin()
+
   padding 4px 10px 4px
   margin-bottom 0
-  line-height 18px
-  text-align center
-  vertical-align middle
-  border-radius: 2px
   -moz-background-clip padding
   -webkit-background-clip padding-box
   background-clip padding-box
-  cursor pointer
   font-size 12px
   text-decoration none
   font-weight bold
