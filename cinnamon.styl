@@ -532,6 +532,33 @@ h1,h2,h3,h4,h5,h6
   text-rendering: optimizeLegibility
   color: more-black
 
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+  margin 1.6em 0 0.8em 0
+  line-height 1.5
+h1
+  font-size: 180%
+  & + h2
+    margin-top: 0
+h2
+  font-size: 170%
+  color: blue-black
+  & + h3
+    margin-top: 0
+h3
+  font-size: 150%
+  color: blue-gray
+  & + h4
+    margin-top: 0
+h4
+  font-size: 130%
+  color: blue-gray
+h5
+  font-size: 120%
+  color: blue-gray
+h6
+  font-size: 105%
+  color: blue-gray
 
 a
   color: link-color
@@ -810,27 +837,6 @@ height-of-global-header = 37px
     max-width 100%
     padding 5px
     border-radius 3px
-  h1, h2, h3, h4, h5, h6
-    font-weight: normal
-    margin 1.6em 0 0.8em 0
-    line-height 1.5
-  h1
-    font-size: 180%
-  h2
-    font-size: 165%
-    color: blue-black
-  h3
-    font-size: 150%
-    color: blue-gray
-  h4
-    font-size: 130%
-    color: blue-gray
-  h5
-    font-size: 120%
-    color: blue-gray
-  h6
-    font-size: 105%
-    color: blue-gray
   .hatena-asin-detail, .itunes-embed
     background-color: white
     li
