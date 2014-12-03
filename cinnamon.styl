@@ -532,6 +532,33 @@ h1,h2,h3,h4,h5,h6
   text-rendering: optimizeLegibility
   color: more-black
 
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+  margin 1.6em 0 0.8em 0
+  line-height 1.5
+h1
+  font-size: 180%
+  & + h2
+    margin-top: 0
+h2
+  font-size: 170%
+  color: blue-black
+  & + h3
+    margin-top: 0
+h3
+  font-size: 150%
+  color: blue-gray
+  & + h4
+    margin-top: 0
+h4
+  font-size: 130%
+  color: blue-gray
+h5
+  font-size: 120%
+  color: blue-gray
+h6
+  font-size: 105%
+  color: blue-gray
 
 a
   color: link-color
@@ -610,8 +637,6 @@ archive-module-month-title
   padding 4px 10px 4px
   margin-bottom 0
   line-height 18px
-  color #454545
-  background-color white
   text-align center
   vertical-align middle
   border-radius: 2px
@@ -622,10 +647,14 @@ archive-module-month-title
   font-size 12px
   text-decoration none
   font-weight bold
-  border 1px solid rgba(0, 0, 0, 0.2)
+  color white
+  background-color #766769
+  border: none
+  border-right: 2px solid #A0391B
+  border-bottom: 3px solid #543A31
   text-decoration none !important
   &:hover
-    background-color #f5f5f5
+    background-color: darken(@background-color, 15%)
     text-decoration none !important
 
 .btn-small
@@ -736,7 +765,7 @@ height-of-global-header = 37px
 .entry-title
   margin: 15px auto 25px auto
   line-height 1.2
-  font-size: 170%
+  font-size: 210%
 
 .date
   margin: auto
@@ -810,27 +839,6 @@ height-of-global-header = 37px
     max-width 100%
     padding 5px
     border-radius 3px
-  h1, h2, h3, h4, h5, h6
-    font-weight: normal
-    margin 1.6em 0 0.8em 0
-    line-height 1.5
-  h1
-    font-size: 180%
-  h2
-    font-size: 165%
-    color: blue-black
-  h3
-    font-size: 150%
-    color: blue-gray
-  h4
-    font-size: 130%
-    color: blue-gray
-  h5
-    font-size: 120%
-    color: blue-gray
-  h6
-    font-size: 105%
-    color: blue-gray
   .hatena-asin-detail, .itunes-embed
     background-color: white
     li
@@ -910,8 +918,6 @@ blockquote
   padding 4px 10px 4px
   margin-bottom 0
   line-height 18px
-  color #454545
-  background-color white
   text-align center
   vertical-align middle
   border-radius: 2px
@@ -922,10 +928,13 @@ blockquote
   font-size 12px
   text-decoration none
   font-weight bold
-  border 1px solid rgba(0, 0, 0, 0.2)
+  color white
+  background-color #926256
+  border-bottom: 3px solid #553131
+  border-right: 2px solid #C31F44
   text-decoration none !important
   &:hover
-    background-color #f5f5f5
+    background-color: lighten(@background-color, 15%)
     text-decoration none !important
 
 .hatena-module
@@ -1109,6 +1118,11 @@ img.profile-icon
 .body-iframe
   font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
 
+// google adcense
+.google-afc-image, .google-afc-text
+  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  margin: 3em 0
+
 
 #top-editarea,#bottom-editarea
   margin 0 auto
@@ -1200,3 +1214,10 @@ img.profile-icon
 
 
 /* }}} */
+
+
+// my widget
+#cina--categories__select
+  margin: 0 15px
+  background-color: #FEFEFE
+  vertical-align: middle
