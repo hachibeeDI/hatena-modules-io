@@ -647,25 +647,31 @@ button-style-mixin()
   padding: 2px 5px !important
   padding-left: 7px !important
   width: auto!important
-  text-align: center!important
   font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  text-align: center!important
   color: #454545 !important
   background: #B7E7D1 !important
   border: 0 none!important
   border-bottom: 3px solid #52B2A7 !important
   border-right: 1px solid #275E6E !important
+
+  font-style: normal
+  font-weight: normal
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
   &:hover
-    background: darken(@background, 15%)!important
+    background: darken(#B7E7D1, 15%) !important
     border-bottom-color: darken(#52B2A7, 10%) !important
     color: @color !important
   &:before
-    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    font-family: 'blogicon'
     font-weight: bold
-    font-size: 12px
+    font-size: 11px
     padding-right: 3px
     color: @color
-    content: '+'
-    vertical-align: top
+    // content: '+'
+    content: '\f048'
 
 
 .btn
