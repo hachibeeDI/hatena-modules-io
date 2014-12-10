@@ -650,6 +650,8 @@ button-style-mixin()
   cursor pointer
   text-decoration none
 
+.hatena-follow-button-box
+  margin: 10px 0
 
 .hatena-follow-button
   button-style-mixin()
@@ -713,11 +715,18 @@ button-style-mixin()
   line-height normal
   font-weight bold
 
-#follow-button
+.twitter--follow__button
+  margin: 10px 0
   background-color: twitter-blue
   border-right: 2px solid #2F6475
-  border-bottom: 3px solid #3A638B
+  border-bottom: 3px solid
+  border-bottom-color: #3A638B
   padding: 3px 6px
+  margin: 10px 0
+  &:hover
+    background: darken(@background-color, 15%)
+    border-bottom-color: darken(@border-bottom-color, 10%)
+    color: @color !important
   &:before
     icon-font-style()
     font-family: 'blogicon'
