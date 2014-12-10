@@ -650,6 +650,7 @@ button-style-mixin()
   cursor pointer
   text-decoration none
 
+// NOTE: 標準だとダサめな読者になるボタンのスタイルを上書きするスタイル {{{
 .hatena-follow-button-box
   margin: 10px 0
 
@@ -684,7 +685,7 @@ button-style-mixin()
     color: @color
     // content: '+'
     content: '\f048'
-
+// }}}
 
 .btn
   button-style-mixin()
@@ -715,14 +716,16 @@ button-style-mixin()
   line-height normal
   font-weight bold
 
-.twitter--follow__button
+// NOTE: カスタムなツイッターボタン用のスタイル {{{
+.twitter--follow__button--box
   margin: 10px 0
+
+.twitter--follow__button
   background-color: twitter-blue
   border-right: 2px solid #2F6475
   border-bottom: 3px solid
   border-bottom-color: #3A638B
   padding: 3px 6px
-  margin: 10px 0
   &:hover
     background: darken(@background-color, 15%)
     border-bottom-color: darken(@border-bottom-color, 10%)
@@ -737,6 +740,7 @@ button-style-mixin()
     vertical-align: bottom
   .label
     vertical-align: top
+// }}}
 
 #globalheader-container
   position: fixed
