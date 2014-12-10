@@ -472,12 +472,21 @@ light-gray = #EDEDED
 
 blue-black = #3C465C
 blue-gray = #557279
+twitter-blue = #55ACEE
 
 link-color = #1487bd
 no-blue-link-color = #5E5E5E
 base-color = #F4F3EC
 header-bg-color = #69553C
 
+
+// mixins {{{
+icon-font-style()
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+//}}}
 
 hr
   margin: 1.5rem auto
@@ -665,6 +674,7 @@ button-style-mixin()
     border-bottom-color: darken(#52B2A7, 10%) !important
     color: @color !important
   &:before
+    icon-font-style()
     font-family: 'blogicon'
     font-weight: bold
     font-size: 11px
@@ -703,6 +713,21 @@ button-style-mixin()
   line-height normal
   font-weight bold
 
+#follow-button
+  background-color: twitter-blue
+  border-right: 2px solid #2F6475
+  border-bottom: 3px solid #3A638B
+  padding: 3px 6px
+  &:before
+    icon-font-style()
+    font-family: 'blogicon'
+    font-size: 16px
+    padding-right: 3px
+    // color: @color
+    content: '\f035'
+    vertical-align: bottom
+  .label
+    vertical-align: top
 
 #globalheader-container
   position: fixed
