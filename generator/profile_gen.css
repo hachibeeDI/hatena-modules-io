@@ -1,0 +1,18 @@
+.gen--input-area {
+    margin: 20px auto;
+    margin-left: 30px;
+}
+
+#gen--preview-area {
+    margin: 30px auto;
+    margin-left: 30px;
+    padding: 20px;
+    border: 1px #ddd solid;
+}
+
+#gen--source-area {
+    margin: 30px 15px;
+    width: 980px;
+    height: 500px;
+    background-color: #F8F8F8;
+}
