@@ -7,20 +7,28 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>カスタムプロフィールの生成</title>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="./profile_gen.css">
+    <link rel="stylesheet" href="../cinnamon.css">
+
+    <!--     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"> -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
   </head>
   <body>
     <div id="datas">
-     <input type="text" name="introduction" placeholder="自己紹介" v-model="introduction">
-     <input type="text" name="twitter-id" placeholder="ツイッターのID" v-model="twitter_id">
-     <input type="text" name="twitter-name" placeholder="ツイッターの名前" v-model="twitter_name">
-     <input type="text" name="photo" placeholder="写真のURL" v-model="photo_url">
+      <div class="gen--input-area">
+        <input type="text" name="hatena-id" placeholder="はてなID" v-model="hatena_id" v-on="change: render_preview">
+        <input type="text" name="hatena-nickname" placeholder="ニックネーム" v-model="hatena_nickname" v-on="change: render_preview">
+        <textarea type="text" name="introduction" placeholder="自己紹介" v-model="introduction" v-on="change: render_preview"></textarea>
+        <input type="text" name="twitter-id" placeholder="ツイッターのID" v-model="twitter_id" v-on="change: render_preview">
+        <input type="text" name="twitter-name" placeholder="ツイッターの名前" v-model="twitter_name" v-on="change: render_preview">
+        <input type="text" name="photo" placeholder="写真のURL" v-model="photo_url" v-on="change: render_preview">
+      </div>
+      <textarea id="gen--source-area" v-model="preview_data" v-show="preview_data" readonly></textarea>
+
     </div>
 
-    <pre id="preview-area" v-model="preview_data"></pre>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
     <script src="./js/profile_gen.js"></script>
   </body>
 </html>
