@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>カスタムプロフィールの生成</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div id="datas">
+     <input type="text" name="introduction" placeholder="自己紹介" v-model="introduction">
+     <input type="text" name="twitter-id" placeholder="ツイッターのID" v-model="twitter_id">
+     <input type="text" name="twitter-name" placeholder="ツイッターの名前" v-model="twitter_name">
+     <input type="text" name="photo" placeholder="写真のURL" v-model="photo_url">
+    </div>
+
+    <pre id="preview-area" v-model="preview_data"></pre>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+    <script src="./js/profile_gen.js"></script>
+  </body>
+</html>

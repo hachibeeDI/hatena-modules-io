@@ -472,12 +472,21 @@ light-gray = #EDEDED
 
 blue-black = #3C465C
 blue-gray = #557279
+twitter-blue = #55ACEE
 
 link-color = #1487bd
 no-blue-link-color = #5E5E5E
 base-color = #F4F3EC
 header-bg-color = #69553C
 
+
+// mixins {{{
+icon-font-style()
+  text-rendering: auto
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+//}}}
 
 hr
   margin: 1.5rem auto
@@ -630,22 +639,62 @@ archive-module-month-title
   visibility: hidden
 
 
-.btn
+button-style-mixin()
   display inline-block
   *display inline
   *zoom 1
-  padding 4px 10px 4px
-  margin-bottom 0
+  border-radius: 2px
   line-height 18px
   text-align center
   vertical-align middle
-  border-radius: 2px
+  cursor pointer
+  text-decoration none
+
+// NOTE: 標準だとダサめな読者になるボタンのスタイルを上書きするスタイル {{{
+.hatena-follow-button-box
+  margin: 10px 0
+
+.hatena-follow-button
+  button-style-mixin()
+  padding: 2px 5px !important
+  padding-left: 7px !important
+  width: auto!important
+  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  text-align: center!important
+  color: #454545 !important
+  background: #FFBA1C !important
+  border: 0 none!important
+  border-bottom: 3px solid #B47F22 !important
+  border-right: 1px solid #C87134 !important
+
+  font-style: normal
+  font-weight: bold
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+  &:hover
+    background: darken(#FFBA1C, 15%) !important
+    border-bottom-color: darken(#B47F22, 15%) !important
+    color: @color !important
+  &:before
+    icon-font-style()
+    font-family: 'blogicon'
+    font-weight: bold
+    font-size: 11px
+    padding-right: 3px
+    color: @color
+    // content: '+'
+    content: '\f048'
+// }}}
+
+.btn
+  button-style-mixin()
+  padding 4px 10px 4px
+  margin-bottom 0
   -moz-background-clip padding
   -webkit-background-clip padding-box
   background-clip padding-box
-  cursor pointer
   font-size 12px
-  text-decoration none
   font-weight bold
   color white
   background-color #766769
@@ -667,6 +716,31 @@ archive-module-month-title
   line-height normal
   font-weight bold
 
+// NOTE: カスタムなツイッターボタン用のスタイル {{{
+.twitter--follow__button--box
+  margin: 10px 0
+
+.twitter--follow__button
+  background-color: twitter-blue
+  border-right: 2px solid #2F6475
+  border-bottom: 3px solid
+  border-bottom-color: #3A638B
+  padding: 3px 6px
+  &:hover
+    background: darken(@background-color, 15%)
+    border-bottom-color: darken(@border-bottom-color, 10%)
+    color: @color !important
+  &:before
+    icon-font-style()
+    font-family: 'blogicon'
+    font-size: 16px
+    padding-right: 3px
+    // color: @color
+    content: '\f035'
+    vertical-align: bottom
+  .label
+    vertical-align: top
+// }}}
 
 #globalheader-container
   position: fixed
@@ -912,19 +986,13 @@ blockquote
     color #999999
 
 .leave-comment-title
-  display inline-block
-  *display inline
-  *zoom 1
+  button-style-mixin()
+
   padding 4px 10px 4px
   margin-bottom 0
-  line-height 18px
-  text-align center
-  vertical-align middle
-  border-radius: 2px
   -moz-background-clip padding
   -webkit-background-clip padding-box
   background-clip padding-box
-  cursor pointer
   font-size 12px
   text-decoration none
   font-weight bold
