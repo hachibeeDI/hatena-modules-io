@@ -1196,96 +1196,6 @@ img.profile-icon
   margin: 3em 0
 
 
-
-  /* import media queries {{{ */
-/* Media Queries - for Retina Display */
-@media (-webkit-min-device-pixel-ratio: 2)
-  .hatena-module-search-box .search-module-button
-    background: transparent url('http://blog.hatena.ne.jp/images/theme/search@2x.png') no-repeat right center
-    background-size: 20px 20px
-
-/* Media Queries - Tablet */
-@media (min-width: 768px) and (max-width: 1024px)
-  #container
-    width: 100%
-
-  #container #content
-    width: 85%
-
-  #main
-    width: 85%
-    float: none
-
-  #box2
-    margin: 0 auto
-    width: 95%
-
-  #box2-inner
-    width: 100%
-    margin: auto
-
-  .hatena-module
-    margin: 0 auto 30px
-    width: 70%
-
-  .entry-header-menu
-    top: 10px
-    right: 0px
-
-
-/* Media Queries - Small Tablet & Smartphone */
-@media (max-width: 767px)
-  #globalheader-container
-    position: static
-
-  #container
-    width: 100%
-
-  #blog-title
-    margin: 0 0 30px
-    padding: 30px 0 40px
-
-  #container #content
-    width: 85%
-
-  #main
-    width: 85%
-    float: none
-
-  #box2
-    width: 85%
-    float: none
-
-  .hatena-module
-    margin: 0 auto 30px
-    float: none
-
-  .entry-header-menu
-    top: 10px
-    right: 0px
-
-
-/* Media Queries - Smartphone */
-@media (max-width: 480px)
-  #main
-    width: 100%
-    float: none
-
-  #box2
-    float: none
-    width: 100%
-
-
-/* }}} */
-
-
-// my widget
-#cina--categories__select
-  margin: 0 15px
-  background-color: #FEFEFE
-  vertical-align: middle
-
-
 // custom global header {{{
 #top-editarea,#bottom-editarea
   margin: 0 auto
@@ -1334,3 +1244,91 @@ img.profile-icon
     color: inherit
 
 //}}}
+
+
+  /* import media queries {{{ */
+/* Media Queries - for Retina Display */
+@media (-webkit-min-device-pixel-ratio: 2)
+  .hatena-module-search-box .search-module-button
+    background: transparent url('http://blog.hatena.ne.jp/images/theme/search@2x.png') no-repeat right center
+    background-size: 20px 20px
+
+/* Media Queries - Tablet */
+center-width-in-tablet = 85%
+@media (min-width: 768px) and (max-width: 1024px)
+  #container
+    width: 100%
+
+  #container #content
+    width: center-width-in-tablet
+
+  #main
+    width: center-width-in-tablet
+    float: none
+
+  #box2
+    margin: 0 auto
+    width: 95%
+
+  #box2-inner
+    width: 100%
+    margin: auto
+
+  .hatena-module
+    margin: 0 auto 30px
+    width: 70%
+
+  .entry-header-menu
+    top: 10px
+    right: 0px
+
+  .custom-header--navigation
+    width: center-width-in-tablet
+
+/* Media Queries - Small Tablet & Smartphone */
+@media (max-width: 767px)
+  #globalheader-container
+    position: static
+
+  #container
+    width: 100%
+
+  #container #content
+    width: 85%
+
+  #main
+    width: 85%
+    float: none
+
+  #box2
+    width: 85%
+    float: none
+
+  .hatena-module
+    margin: 0 auto 30px
+    float: none
+
+  .entry-header-menu
+    top: 10px
+    right: 0px
+
+
+/* Media Queries - Smartphone */
+@media (max-width: 480px)
+  #main
+    width: 100%
+    float: none
+
+  #box2
+    float: none
+    width: 100%
+
+
+/* }}} */
+
+
+// my widget
+#cina--categories__select
+  margin: 0 15px
+  background-color: #FEFEFE
+  vertical-align: middle
