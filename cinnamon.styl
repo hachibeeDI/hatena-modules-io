@@ -474,6 +474,8 @@ blue-black = #3C465C
 blue-gray = #557279
 twitter-blue = #55ACEE
 
+yellow-button-color = #FFBA1C
+
 link-color = #1487bd
 no-blue-link-color = #5E5E5E
 base-color = #F4F3EC
@@ -662,7 +664,7 @@ button-style-mixin()
   font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
   text-align: center!important
   color: #454545 !important
-  background: #FFBA1C !important
+  background: yellow-button-color !important
   border: 0 none!important
   border-bottom: 3px solid #B47F22 !important
   border-right: 1px solid #C87134 !important
@@ -685,6 +687,8 @@ button-style-mixin()
     color: @color
     // content: '+'
     content: '\f048'
+  .subscribing
+    color: #555!important
 // }}}
 
 .btn
