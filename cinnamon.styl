@@ -1196,11 +1196,6 @@ img.profile-icon
   margin: 3em 0
 
 
-#top-editarea,#bottom-editarea
-  margin 0 auto
-  width 1000px
-
-
 
   /* import media queries {{{ */
 /* Media Queries - for Retina Display */
@@ -1293,3 +1288,46 @@ img.profile-icon
   margin: 0 15px
   background-color: #FEFEFE
   vertical-align: middle
+
+
+// custom global header {{{
+#top-editarea,#bottom-editarea
+  margin: 0 auto
+  width: 100%
+  // background-color: darken(header-bg-color, 20%)
+  background-color: rgba(50, 28, 13, 0.71)
+
+
+.custom-header--navigation
+  // same as #content
+  min-width: 320px
+  width: 80%
+  margin: auto
+  background-color: #260D03
+
+.custom-header
+  margin: 0
+  padding: 0
+
+.custom-header__li
+  list-style-type: none
+  display: inline-block
+  vertical-align: middle
+  height: 40px
+  box-sizing: border-box
+  padding: 8px 10px
+  background-color: #FFA21C
+  color: rich-white
+  border-top: 2px solid #2FBD87
+  border-bottom: 4px solid rgba(39, 39, 39, 0.18)
+  transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
+  &:hover
+    // background-color: darken(@background-color, 30%)
+    background-color: #5B111E
+    border-top: 2px solid #DFFA3D
+  a
+    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    text-rendering: optimizeLegibility
+    color: inherit
+
+//}}}
