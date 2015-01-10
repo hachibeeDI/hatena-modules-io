@@ -1246,7 +1246,7 @@ img.profile-icon
 //}}}
 
 
-  /* import media queries {{{ */
+/* import media queries {{{ */
 /* Media Queries - for Retina Display */
 @media (-webkit-min-device-pixel-ratio: 2)
   .hatena-module-search-box .search-module-button
@@ -1258,9 +1258,8 @@ center-width-in-tablet = 85%
 @media (min-width: 768px) and (max-width: 1024px)
   #container
     width: 100%
-
-  #container #content
-    width: center-width-in-tablet
+    #content
+      width: center-width-in-tablet
 
   #main
     width: center-width-in-tablet
@@ -1323,6 +1322,17 @@ center-width-in-tablet = 85%
     float: none
     width: 100%
 
+  #blog-title
+    margin-top: 0
+  #title
+    margin: 0
+  .header-image-enable #blog-title #blog-title-inner
+    // はてなのglobal-header-cssが邪魔なので打ち消す
+    height: auto!important
+  .custom-header--navigation
+    display: none
+  // .custom-header__li
+  //   display: block
 
 /* }}} */
 
@@ -1332,3 +1342,4 @@ center-width-in-tablet = 85%
   margin: 0 15px
   background-color: #FEFEFE
   vertical-align: middle
+
