@@ -1112,17 +1112,13 @@ blockquote
     &:hover
       text-decoration underline
   .pager-prev
-    float right
-    &:before
-      content "次【"
+    float: right
     &:after
-      content "】»"
+      content: " »"
   .pager-next
-    float left
+    float: left
     &:before
-      content "« ひとつ前【"
-    &:after
-      content "】"
+      content: "« "
 
 .pager .pager-prev,.pager .pager-next
   display block
@@ -1197,7 +1193,7 @@ img.profile-icon
 
 
 
-  /* import media queries {{{ */
+/* import media queries {{{ */
 /* Media Queries - for Retina Display */
 @media (-webkit-min-device-pixel-ratio: 2)
   .hatena-module-search-box .search-module-button
@@ -1311,6 +1307,7 @@ img.profile-icon
   list-style-type: none
   text-align: left
 
+
 .custom-header__li
   list-style-type: none
   min-width: 80px
@@ -1319,8 +1316,8 @@ img.profile-icon
   vertical-align: middle
   height: 40px
   line-height: 37px
+  overflow: hidden
   box-sizing: border-box
-  padding: 0 10px
   margin: 0 1px
   background-color: #FFA21C
   color: rich-white
@@ -1328,13 +1325,16 @@ img.profile-icon
   border-bottom: 4px solid rgba(39, 39, 39, 0.18)
   transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
   &:hover
-    // background-color: darken(@background-color, 30%)
     background-color: #5B111E
     border-top: 2px solid #DFFA3D
   a
+    display: inline-block
+    min-width: @min-width - 20px
+    height: 100%
+    padding: 0 10px
     font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
     font-weight: normal
     text-rendering: optimizeLegibility
     color: inherit
 
-//}}}
+// }}}
