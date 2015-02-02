@@ -782,6 +782,7 @@ button-style-mixin()
 
 #box2
   width 33%
+  min-width: 320px  // 1024px / 3
   float right
   img.profile-icon
     width: 100%
@@ -1288,6 +1289,18 @@ img.profile-icon
   margin: 0 15px
   background-color: #FEFEFE
   vertical-align: middle
+
+
+@keyframes cina--blink
+0%
+  opacity:0
+100%
+  opacity:1
+
+.cina--loading
+  -webkit-animation: cina--blink 1.5s ease-in-out infinite alternate
+  -moz-animation: cina--blink 1.5s ease-in-out infinite alternate
+  animation: cina--blink 1.5s ease-in-out infinite alternate
 
 
 // custom global header {{{
