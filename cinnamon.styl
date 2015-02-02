@@ -477,7 +477,7 @@ twitter-blue = #55ACEE
 yellow-button-color = #FFBA1C
 
 link-color = #1487bd
-no-blue-link-color = #5E5E5E
+no-blue-link-color = #3F1C03
 base-color = #F4F3EC
 header-bg-color = #69553C
 
@@ -648,20 +648,23 @@ archive-module-month-title
   overflow: hidden
 
 .entries-access-ranking-item:hover
-  background-color: #FAEBE0
-  transition: background-color 1s ease-in 0
+  background-color: #F7F5F0
+  // transition: background-color 1s ease-in 0
 
 .entries-access-ranking-title-link
   font-weight: normal
   font-family: fonts-for-title
   text-rendering: optimizeLegibility
-  color: #3F1C03
+  color: no-blue-link-color
+  word-break: break-all
+  word-wrap: break-word
 
 // .urllist-image-link
 //   // pass
 
 .entries-access-ranking-categories
   visibility: visible
+  margin: 2px auto 20px
 
 .urllist-category-link
   display: inline-block
@@ -669,7 +672,7 @@ archive-module-month-title
   background-color: #F8CE61
   border: 1px solid #EDB22E
   padding: 2px 4px 0 4px
-  margin: 0 2px 15px 2px
+  margin-right: 5px
 
 // .urllist-entry-body entries-access-ranking-entry-body
 //   // pass
