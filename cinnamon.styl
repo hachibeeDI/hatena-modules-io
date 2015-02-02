@@ -633,14 +633,46 @@ h6 a:visited
   color: inherit
 
 
+// class of link-list for articles
 .hatena-urllist a,
 .urllist-title-link,
 .urllist-title,
 archive-module-month-title
   color: no-blue-link-color
 
+.urllist-item
+  margin: 5px auto
+
+// .urllist-item-inner
+.urllist-item-inner
+  overflow: hidden
+
+.entries-access-ranking-item:hover
+  background-color: #FAEBE0
+  transition: background-color 1s ease-in 0
+
+.entries-access-ranking-title-link
+  font-weight: normal
+  font-family: fonts-for-title
+  text-rendering: optimizeLegibility
+  color: #3F1C03
+
+// .urllist-image-link
+//   // pass
+
 .entries-access-ranking-categories
-  visibility: hidden
+  visibility: visible
+
+.urllist-category-link
+  display: inline-block
+  border-radius: 2px
+  background-color: #F8CE61
+  border: 1px solid #EDB22E
+  padding: 2px 4px 0 4px
+  margin: 0 2px 15px 2px
+
+// .urllist-entry-body entries-access-ranking-entry-body
+//   // pass
 
 
 button-style-mixin()
