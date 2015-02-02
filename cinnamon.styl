@@ -474,10 +474,14 @@ blue-black = #3C465C
 blue-gray = #557279
 twitter-blue = #55ACEE
 
+yellow-button-color = #FFBA1C
+
 link-color = #1487bd
-no-blue-link-color = #5E5E5E
+no-blue-link-color = #3F1C03
 base-color = #F4F3EC
 header-bg-color = #69553C
+
+fonts-for-title = 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
 
 
 // mixins {{{
@@ -537,7 +541,7 @@ body
 
 
 h1,h2,h3,h4,h5,h6
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  font-family: fonts-for-title
   text-rendering: optimizeLegibility
   color: more-black
 
@@ -624,19 +628,54 @@ h3 a:visited,
 h4 a:visited,
 h5 a:visited,
 h6 a:visited
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  font-family: fonts-for-title
   text-rendering: optimizeLegibility
   color: inherit
 
 
+// class of link-list for articles
 .hatena-urllist a,
 .urllist-title-link,
 .urllist-title,
 archive-module-month-title
   color: no-blue-link-color
 
+.urllist-item
+  margin: 5px auto
+
+// .urllist-item-inner
+.urllist-item-inner
+  overflow: hidden
+
+.entries-access-ranking-item:hover
+  background-color: #F7F5F0
+  // transition: background-color 1s ease-in 0
+
+.entries-access-ranking-title-link
+  font-weight: normal
+  font-family: fonts-for-title
+  text-rendering: optimizeLegibility
+  color: no-blue-link-color
+  word-break: break-all
+  word-wrap: break-word
+
+// .urllist-image-link
+//   // pass
+
 .entries-access-ranking-categories
-  visibility: hidden
+  visibility: visible
+  margin: 2px auto 20px
+
+.urllist-category-link
+  display: inline-block
+  border-radius: 2px
+  background-color: #F8CE61
+  border: 1px solid #EDB22E
+  padding: 2px 4px 0 4px
+  margin-right: 5px
+
+// .urllist-entry-body entries-access-ranking-entry-body
+//   // pass
 
 
 button-style-mixin()
@@ -659,10 +698,10 @@ button-style-mixin()
   padding: 2px 5px !important
   padding-left: 7px !important
   width: auto!important
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  font-family: fonts-for-title
   text-align: center!important
   color: #454545 !important
-  background: #FFBA1C !important
+  background: yellow-button-color !important
   border: 0 none!important
   border-bottom: 3px solid #B47F22 !important
   border-right: 1px solid #C87134 !important
@@ -685,6 +724,8 @@ button-style-mixin()
     color: @color
     // content: '+'
     content: '\f048'
+  .subscribing
+    color: #555!important
 // }}}
 
 .btn
@@ -778,6 +819,7 @@ button-style-mixin()
 
 #box2
   width 33%
+  min-width: 320px  // 1024px / 3
   float right
   img.profile-icon
     width: 100%
@@ -1108,17 +1150,13 @@ blockquote
     &:hover
       text-decoration underline
   .pager-prev
-    float right
-    &:before
-      content "次【"
+    float: right
     &:after
-      content "】»"
+      content: " »"
   .pager-next
-    float left
+    float: left
     &:before
-      content "« ひとつ前【"
-    &:after
-      content "】"
+      content: "« "
 
 .pager .pager-prev,.pager .pager-next
   display block
@@ -1192,13 +1230,8 @@ img.profile-icon
   margin: 3em 0
 
 
-#top-editarea,#bottom-editarea
-  margin 0 auto
-  width 1000px
 
-
-
-  /* import media queries {{{ */
+/* import media queries {{{ */
 /* Media Queries - for Retina Display */
 @media (-webkit-min-device-pixel-ratio: 2)
   .hatena-module-search-box .search-module-button
@@ -1289,3 +1322,71 @@ img.profile-icon
   margin: 0 15px
   background-color: #FEFEFE
   vertical-align: middle
+
+
+@keyframes cina--blink
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+.cina--loading
+  -webkit-animation: cina--blink 1.5s ease-in-out infinite alternate
+  -moz-animation: cina--blink 1.5s ease-in-out infinite alternate
+  animation: cina--blink 1.5s ease-in-out infinite alternate
+
+
+// custom global header {{{
+#top-editarea,#bottom-editarea
+  margin: 0 auto
+  width: 100%
+  // background-color: darken(header-bg-color, 20%)
+  background-color: rgba(43, 22, 8, 0.84)
+
+
+.custom-header--navigation
+  // same as #content
+  min-width: 320px
+  width: 72%  // 背景を設定するなら width: 80%
+  margin: auto
+  background-color: rgba(48, 21, 10, 0.4)
+
+.custom-header
+  margin: 0
+  padding: 0
+  list-style-type: none
+  text-align: left
+
+
+.custom-header__li
+  list-style-type: none
+  min-width: 80px
+  text-align: center
+  display: inline-block
+  vertical-align: middle
+  height: 40px
+  line-height: 37px
+  overflow: hidden
+  box-sizing: border-box
+  margin: 0 1px
+  background-color: #FFA21C
+  color: rich-white
+  border-top: 2px solid #2FBD87
+  border-bottom: 4px solid rgba(39, 39, 39, 0.18)
+  transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
+  &:hover
+    background-color: #5B111E
+    border-top: 2px solid #DFFA3D
+  a
+    display: inline-block
+    min-width: @min-width - 20px
+    height: 100%
+    padding: 0 10px
+    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    font-family: fonts-for-title
+    font-weight: normal
+    text-rendering: optimizeLegibility
+    color: inherit
+
+// }}}
