@@ -540,10 +540,33 @@ body
 //   background-size:cover;
 
 
+a
+  color: link-color
+  text-decoration: none
+  &:link
+    // pass
+  &:visited
+    // pass
+  &:hover
+    text-decoration: none
+  &:active
+    // pass
+
+a.keyword
+  text-decoration: none
+  color: black
+  border-bottom: 1px solid #E1E1E1
+
+
 h1,h2,h3,h4,h5,h6
   font-family: fonts-for-title
   text-rendering: optimizeLegibility
   color: more-black
+  .keyword
+    text-decoration: none
+    color: inherit
+    border-bottom: none
+    cursor: default
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
@@ -573,43 +596,6 @@ h6
   font-size: 105%
   color: blue-gray
 
-a
-  color: link-color
-  text-decoration: none
-  &:link
-    // pass
-  &:visited
-    // pass
-  &:hover
-    text-decoration: none
-  &:active
-    // pass
-
-a.keyword
-  text-decoration: none
-  color: black
-  border-bottom: 1px solid #E1E1E1
-
-
-table
-  border-collapse collapse
-  border-spacing 0
-  margin-bottom 1em
-
-th,
-td
-  border 1px solid #ddd
-  padding 5px 10px
-
-th
-  background-color: header-bg-color
-  color: rich-white
-  font-size: 105%
-
-td
-  background-color: rich-white
-
-
 h1 a,
 h2 a,
 h3 a,
@@ -630,8 +616,27 @@ h5 a:visited,
 h6 a:visited
   font-family: fonts-for-title
   text-rendering: optimizeLegibility
-  color: inherit
+  color: inherit !important
 
+
+
+table
+  border-collapse collapse
+  border-spacing 0
+  margin-bottom 1em
+
+th,
+td
+  border 1px solid #ddd
+  padding 5px 10px
+
+th
+  background-color: header-bg-color
+  color: rich-white
+  font-size: 105%
+
+td
+  background-color: rich-white
 
 // class of link-list for articles
 .hatena-urllist a,
