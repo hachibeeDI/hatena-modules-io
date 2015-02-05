@@ -473,6 +473,7 @@ light-gray = #EDEDED
 blue-black = #3C465C
 blue-gray = #557279
 twitter-blue = #55ACEE
+facebook-blue = #3274BD
 
 yellow-button-color = #FFBA1C
 
@@ -772,7 +773,7 @@ button-style-mixin()
   border-right: 2px solid #2F6475
   border-bottom: 3px solid
   border-bottom-color: #3A638B
-  padding: 3px 6px
+  padding: 3px 6px 2px
   &:hover
     background: darken(@background-color, 15%)
     border-bottom-color: darken(@border-bottom-color, 10%)
@@ -787,6 +788,32 @@ button-style-mixin()
     vertical-align: bottom
   .label
     vertical-align: top
+// }}}
+
+// facebook ボタンのカスタム {{{
+.facebook-follow-button
+  background: facebook-blue !important
+  color: #fff !important
+  border-radius: 3px
+  border-right: 2px solid #25446C
+  border-bottom: 3px solid
+  border-bottom-color: #1C3E7E
+  padding: 3px 6px 1px
+  &:before
+    icon-font-style()
+    font-family: 'blogicon'
+    font-size: 16px
+    padding-right: 5px
+    // color: @color
+    content: '\f036'
+    vertical-align: bottom
+  &:hover
+    // background: #3F7EB5 !important
+    background: lighten(facebook-blue, 15%) !important
+    color: @color !important
+    border-right: 2px solid #25446C
+    border-bottom: 3px solid lighten(@border-bottom-color, 15%)
+
 // }}}
 
 #globalheader-container
