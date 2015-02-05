@@ -474,6 +474,8 @@ blue-black = #3C465C
 blue-gray = #557279
 twitter-blue = #55ACEE
 facebook-blue = #3274BD
+rss-green = #75CA1C
+pocket-pink = #E54889
 
 yellow-button-color = #FFBA1C
 
@@ -527,18 +529,18 @@ hr
 
 html,
 body
-  font-family: Calibri, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-family: Calibri, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
   color: black
   background-color: base-color
-  font-weight: lighter;
+  font-weight: lighter
 
 // 背景画像を指定すると以下のようなcssが有効になる
 // body
-//   background-image:url('/images/theme/backgrounds/theme1.jpg');
-//   background-repeat:no-repeat;
-//   background-attachment:fixed;
-//   background-position:center top;
-//   background-size:cover;
+//   background-image:url('/images/theme/backgrounds/theme1.jpg')
+//   background-repeat:no-repeat
+//   background-attachment:fixed
+//   background-position:center top
+//   background-size:cover
 
 
 a
@@ -813,6 +815,45 @@ button-style-mixin()
     color: @color !important
     border-right: 2px solid #25446C
     border-bottom: 3px solid lighten(@border-bottom-color, 15%)
+
+// }}}
+
+
+// 記事上カスタムシェアボタン {{{
+
+.sns-share--area
+  margin: auto
+  padding: 0
+
+.sns-share--area li
+  display: inline-block
+  list-style-type: none
+
+.sns-share--link
+  display: block
+  color: #fff
+  border-radius: 50%
+  width: 45px
+  height: 45px
+  line-height: 47px
+  text-align: center
+  margin-right: 15px
+
+
+.sns-share--bookmark
+  background-color: link-color
+
+.sns-share--twitter
+  background-color: twitter-blue
+
+.sns-share--facebook
+  background-color: facebook-blue
+
+.sns-share--rss
+  background-color: rss-green
+
+.sns-share--pocket
+  background-color: pocket-pink
 
 // }}}
 
@@ -1254,11 +1295,11 @@ img.profile-icon
 /* iframeのはてなリンクの中身 */
 // .embed-wrapper
 .body-iframe
-  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
 
 // google adcense
 .google-afc-image, .google-afc-text
-  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif
   margin: 3em 0
 
 
