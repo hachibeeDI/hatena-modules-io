@@ -644,14 +644,18 @@ a[name^="fn-"]
     display: inline-block
     left: 42px
     background-color: #FFBA1C
+    border-bottom: 2px solid darken(@background-color, 15%)
+    border-right: 3px solid darken(@background-color, 25%)
     font-size: 90%
     color: more-black
     content: attr(title)
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
+    text-indent: 6px
     width: 230px
     height: 20px
+    line-height: @height + 2px
     padding: 5px
 
 
