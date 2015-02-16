@@ -698,6 +698,10 @@ button-style-mixin()
   cursor pointer
   text-decoration none
 
+.profile-icon
+  width: 32px
+  height: 32px
+
 // NOTE: 標準だとダサめな読者になるボタンのスタイルを上書きするスタイル {{{
 .hatena-follow-button-box
   margin: 10px 0
@@ -895,9 +899,6 @@ button-style-mixin()
   width 33%
   min-width: 320px  // 1024px / 3
   float right
-  img.profile-icon
-    width: 100%
-    height: auto !important
 
 #box2-inner
   width: 95%
@@ -1141,6 +1142,8 @@ blockquote
 
 .hatena-module-profile
   .profile-icon
+    width: auto
+    height: auto
     float left
     margin 0 10px 10px 0
     border-radius: 5px
@@ -1260,6 +1263,12 @@ blockquote
   dd
     margin-left 0
     margin-bottom 30px
+  img.profile-icon
+    width: 64px !important
+    height: 64px !important
+    border-radius: 50%
+
+
 
 .page-archive
   .archive-entries
@@ -1276,12 +1285,6 @@ blockquote
       font-size 100%
       margin 0 0 1em
       line-height 1.5em
-
-
-img.profile-icon
-  width: 64px !important
-  height: 64px !important
-  border-radius: 50%
 
 
 ::-moz-selection
