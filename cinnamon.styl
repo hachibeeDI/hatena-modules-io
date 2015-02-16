@@ -623,6 +623,37 @@ h6 a:visited
   color: inherit !important
 
 
+// footnoteのツールチップ
+a[name^="fn-"]
+  position: relative
+  // &:after
+  &:hover:before
+    z-index: 99999
+    position: absolute
+    content: ""
+    display: inline-block
+    left: 35px
+    top: 2px
+    width: 20px
+    height: 15px
+    transform: rotate(-45deg)
+    background-color: #FFBA1C
+  &:hover:after
+    z-index: 99999
+    position: absolute
+    display: inline-block
+    left: 42px
+    background-color: #FFBA1C
+    font-size: 90%
+    color: more-black
+    content: attr(title)
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    width: 230px
+    height: 20px
+    padding: 5px
+
 
 table
   border-collapse collapse
