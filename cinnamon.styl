@@ -944,9 +944,9 @@ height-of-global-header = 37px
 #blog-title
   // background-color: header-bg-color
   background-color: rgba(76, 49, 27, 0.75)
-  margin-top: height-of-global-header
+  margin: height-of-global-header 0 0 0
   text-align center
-  font-size: 25px
+  overflow: visible
 
 #blog-title-inner
   height: 100%
@@ -957,6 +957,7 @@ height-of-global-header = 37px
   font-weight: normal
   margin: auto
   color: rich-white
+  font-size: 45px
 
 #blog-description
   color: rich-white
@@ -1397,12 +1398,11 @@ blockquote
   #globalheader-container
     position: static
 
+  #blog-title
+    margin: 0
+
   #container
     width: 100%
-
-  #blog-title
-    margin: 0 0 30px
-    padding: 30px 0 40px
 
   #container #content
     width: 85%
@@ -1426,6 +1426,16 @@ blockquote
 
 /* Media Queries - Smartphone */
 @media (max-width: 480px)
+
+  #title
+    font-size: 35px
+
+  #blog-title-inner
+    padding: 20px 0 25px
+
+  .entry-title
+    font-size: 190%
+
   #main
     width: 100%
     float: none
