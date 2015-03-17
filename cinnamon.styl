@@ -473,13 +473,18 @@ light-gray = #EDEDED
 blue-black = #3C465C
 blue-gray = #557279
 twitter-blue = #55ACEE
+facebook-blue = #3274BD
+rss-green = #75CA1C
+pocket-pink = #E54889
 
 yellow-button-color = #FFBA1C
 
 link-color = #1487bd
-no-blue-link-color = #5E5E5E
+no-blue-link-color = #3F1C03
 base-color = #F4F3EC
 header-bg-color = #69553C
+
+fonts-for-title = 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
 
 
 // mixins {{{
@@ -524,24 +529,48 @@ hr
 
 html,
 body
-  font-family: Calibri, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+  font-family: Calibri, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif
   color: black
   background-color: base-color
-  font-weight: lighter;
+  font-weight: lighter
 
 // 背景画像を指定すると以下のようなcssが有効になる
 // body
-//   background-image:url('/images/theme/backgrounds/theme1.jpg');
-//   background-repeat:no-repeat;
-//   background-attachment:fixed;
-//   background-position:center top;
-//   background-size:cover;
+//   background-image:url('/images/theme/backgrounds/theme1.jpg')
+//   background-repeat:no-repeat
+//   background-attachment:fixed
+//   background-position:center top
+//   background-size:cover
+
+
+a
+  color: link-color
+  text-decoration: none
+  &:link
+    // pass
+  &:visited
+    // pass
+  &:hover
+    text-decoration: none
+  &:active
+    // pass
+
+a.keyword
+  text-decoration: none
+  color: black
+  border-bottom: 1px solid #E1E1E1
+
 
 
 h1,h2,h3,h4,h5,h6
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  font-family: fonts-for-title
   text-rendering: optimizeLegibility
   color: more-black
+  .keyword
+    text-decoration: none
+    color: inherit
+    border-bottom: none
+    cursor: text
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
@@ -571,22 +600,63 @@ h6
   font-size: 105%
   color: blue-gray
 
-a
-  color: link-color
-  text-decoration: none
-  &:link
-    // pass
-  &:visited
-    // pass
-  &:hover
-    text-decoration: none
-  &:active
-    // pass
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover,
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited
+  font-family: fonts-for-title
+  text-rendering: optimizeLegibility
+  color: inherit !important
 
-a.keyword
-  text-decoration: none
-  color: black
-  border-bottom: 1px solid #E1E1E1
+
+// footnoteのツールチップ
+a[name^="fn-"]
+  position: relative
+  // &:after
+  &:hover:before
+    z-index: 99999
+    position: absolute
+    content: ""
+    display: inline-block
+    left: 35px
+    top: 2px
+    width: 20px
+    height: 15px
+    transform: rotate(-45deg)
+    background-color: #FFBA1C
+  &:hover:after
+    z-index: 99999
+    position: absolute
+    display: inline-block
+    left: 42px
+    background-color: #FFBA1C
+    border-bottom: 2px solid darken(@background-color, 15%)
+    border-right: 3px solid darken(@background-color, 25%)
+    font-size: 90%
+    color: more-black
+    content: attr(title)
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    text-indent: 6px
+    width: 230px
+    height: 20px
+    line-height: @height + 2px
+    padding: 5px
 
 
 table
@@ -607,38 +677,49 @@ th
 td
   background-color: rich-white
 
-
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a,
-h1 a:hover,
-h2 a:hover,
-h3 a:hover,
-h4 a:hover,
-h5 a:hover,
-h6 a:hover,
-h1 a:visited,
-h2 a:visited,
-h3 a:visited,
-h4 a:visited,
-h5 a:visited,
-h6 a:visited
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
-  text-rendering: optimizeLegibility
-  color: inherit
-
-
+// class of link-list for articles
 .hatena-urllist a,
 .urllist-title-link,
 .urllist-title,
 archive-module-month-title
   color: no-blue-link-color
 
+.urllist-item
+  margin: 5px auto
+
+// .urllist-item-inner
+.urllist-item-inner
+  overflow: hidden
+
+.entries-access-ranking-item:hover
+  background-color: #F7F5F0
+  // transition: background-color 1s ease-in 0
+
+.entries-access-ranking-title-link
+  font-weight: normal
+  font-family: fonts-for-title
+  text-rendering: optimizeLegibility
+  color: no-blue-link-color
+  word-break: break-all
+  word-wrap: break-word
+
+// .urllist-image-link
+//   // pass
+
 .entries-access-ranking-categories
-  visibility: hidden
+  visibility: visible
+  margin: 2px auto 20px
+
+.urllist-category-link
+  display: inline-block
+  border-radius: 2px
+  background-color: #EFD48B
+  border: 1px solid #EDB22E
+  padding: 2px 4px 0 4px
+  margin-right: 5px
+
+// .urllist-entry-body entries-access-ranking-entry-body
+//   // pass
 
 
 button-style-mixin()
@@ -652,6 +733,10 @@ button-style-mixin()
   cursor pointer
   text-decoration none
 
+.profile-icon
+  width: 32px
+  height: 32px
+
 // NOTE: 標準だとダサめな読者になるボタンのスタイルを上書きするスタイル {{{
 .hatena-follow-button-box
   margin: 10px 0
@@ -661,7 +746,7 @@ button-style-mixin()
   padding: 2px 5px !important
   padding-left: 7px !important
   width: auto!important
-  font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+  font-family: fonts-for-title
   text-align: center!important
   color: #454545 !important
   background: yellow-button-color !important
@@ -729,7 +814,7 @@ button-style-mixin()
   border-right: 2px solid #2F6475
   border-bottom: 3px solid
   border-bottom-color: #3A638B
-  padding: 3px 6px
+  padding: 3px 6px 2px
   &:hover
     background: darken(@background-color, 15%)
     border-bottom-color: darken(@border-bottom-color, 10%)
@@ -744,6 +829,74 @@ button-style-mixin()
     vertical-align: bottom
   .label
     vertical-align: top
+// }}}
+
+// facebook ボタンのカスタム {{{
+.facebook-follow-button
+  background: facebook-blue !important
+  color: #fff !important
+  border-radius: 3px
+  border-right: 2px solid #25446C
+  border-bottom: 3px solid
+  border-bottom-color: #1C3E7E
+  padding: 3px 6px 1px
+  &:before
+    icon-font-style()
+    font-family: 'blogicon'
+    font-size: 16px
+    padding-right: 5px
+    // color: @color
+    content: '\f036'
+    vertical-align: bottom
+  &:hover
+    // background: #3F7EB5 !important
+    background: lighten(facebook-blue, 15%) !important
+    color: @color !important
+    border-right: 2px solid #25446C
+    border-bottom: 3px solid lighten(@border-bottom-color, 15%)
+
+// }}}
+
+
+// 記事上カスタムシェアボタン {{{
+
+.sns-share--area
+  margin: auto
+  padding: 0
+
+.sns-share--area li
+  display: inline-block
+  list-style-type: none
+  margin-right: 15px
+  &:last-child
+    margin-right: 0
+
+.sns-share--link
+  display: block
+  color: #fff
+  border-radius: 50%
+  width: 45px
+  height: 45px
+  line-height: 47px
+  text-align: center
+  margin: 0
+
+
+.sns-share--bookmark
+  background-color: link-color
+
+.sns-share--twitter
+  background-color: twitter-blue
+
+.sns-share--facebook
+  background-color: facebook-blue
+
+.sns-share--rss
+  background-color: rss-green
+
+.sns-share--pocket
+  background-color: pocket-pink
+
 // }}}
 
 #globalheader-container
@@ -782,10 +935,8 @@ button-style-mixin()
 
 #box2
   width 33%
+  min-width: 320px  // 1024px / 3
   float right
-  img.profile-icon
-    width: 100%
-    height: auto !important
 
 #box2-inner
   width: 95%
@@ -796,19 +947,20 @@ height-of-global-header = 37px
 #blog-title
   // background-color: header-bg-color
   background-color: rgba(76, 49, 27, 0.75)
-  margin-top: height-of-global-header
+  margin: height-of-global-header 0 0 0
   text-align center
-  font-size: 25px
+  overflow: visible
 
 #blog-title-inner
   height: 100%
   width 100%
-  padding: 30px 0
+  padding: 40px 0 45px
 
 #title
   font-weight: normal
-  a
-    color: rich-white
+  margin: auto
+  color: rich-white
+  font-size: 45px
 
 #blog-description
   color: rich-white
@@ -822,6 +974,8 @@ height-of-global-header = 37px
   #blog-title-inner
     // NOTE: ヘッダー画像指定時、はてなが入れるCSSが中途半端なのでそれを補う
     background-size: cover
+  #title
+    margin: 70px auto
 
 // breadcrumb
 #top-box
@@ -864,7 +1018,7 @@ height-of-global-header = 37px
 //.date-day
 
 .categories
-  margin-top 6px
+  margin: 0 auto 16px
   font-size 80%
   a
     border-radius: 3px
@@ -908,9 +1062,16 @@ height-of-global-header = 37px
   line-height 1.7
   padding-bottom 10px
   border-bottom 1px solid #dddddd
+  a
+    word-wrap: break-word
+    word-break: break-all
   p
     margin 0 0 1em 0
     font-size: 16px
+    // ``で囲った奴
+    code
+      word-wrap: break-word
+      word-break: break-all
   img
     max-width 100%
     border 1px solid #dddddd
@@ -1030,6 +1191,8 @@ blockquote
 
 .hatena-module-profile
   .profile-icon
+    width: auto
+    height: auto
     float left
     margin 0 10px 10px 0
     border-radius: 5px
@@ -1112,17 +1275,13 @@ blockquote
     &:hover
       text-decoration underline
   .pager-prev
-    float right
-    &:before
-      content "次【"
+    float: right
     &:after
-      content "】»"
+      content: " »"
   .pager-next
-    float left
+    float: left
     &:before
-      content "« ひとつ前【"
-    &:after
-      content "】"
+      content: "« "
 
 .pager .pager-prev,.pager .pager-next
   display block
@@ -1153,6 +1312,11 @@ blockquote
   dd
     margin-left 0
     margin-bottom 30px
+  img.profile-icon
+    width: 64px !important
+    height: 64px !important
+    border-radius: 50%
+
 
 .page-archive
   .archive-entries
@@ -1171,12 +1335,6 @@ blockquote
       line-height 1.5em
 
 
-img.profile-icon
-  width: 64px !important
-  height: 64px !important
-  border-radius: 50%
-
-
 ::-moz-selection
   background-color: #01916B
   color: #fff
@@ -1184,16 +1342,6 @@ img.profile-icon
 ::selection
   background-color: #01916B
   color: #fff
-
-/* iframeのはてなリンクの中身 */
-// .embed-wrapper
-.body-iframe
-  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-
-// google adcense
-.google-afc-image, .google-afc-text
-  font-family: 'Calibri', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
-  margin: 3em 0
 
 
 // custom global header {{{
@@ -1256,10 +1404,8 @@ img.profile-icon
 /* Media Queries - Tablet */
 center-width-in-tablet = 85%
 @media (min-width: 768px) and (max-width: 1024px)
-  #container
-    width: 100%
-    #content
-      width: center-width-in-tablet
+  #container #content
+    width: center-width-in-tablet
 
   #main
     width: center-width-in-tablet
@@ -1289,6 +1435,9 @@ center-width-in-tablet = 85%
   #globalheader-container
     position: static
 
+  #blog-title
+    margin: 0
+
   #container
     width: 100%
 
@@ -1314,6 +1463,16 @@ center-width-in-tablet = 85%
 
 /* Media Queries - Smartphone */
 @media (max-width: 480px)
+
+  #title
+    font-size: 35px
+
+  #blog-title-inner
+    padding: 20px 0 25px
+
+  .entry-title
+    font-size: 190%
+
   #main
     width: 100%
     float: none
@@ -1334,6 +1493,12 @@ center-width-in-tablet = 85%
   // .custom-header__li
   //   display: block
 
+  .sns-share--area
+    text-align: center
+
+  .sns-share--area li
+    margin-right: 11px
+
 /* }}} */
 
 
@@ -1343,3 +1508,70 @@ center-width-in-tablet = 85%
   background-color: #FEFEFE
   vertical-align: middle
 
+
+@keyframes cina--blink
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+.cina--loading
+  -webkit-animation: cina--blink 1.5s ease-in-out infinite alternate
+  -moz-animation: cina--blink 1.5s ease-in-out infinite alternate
+  animation: cina--blink 1.5s ease-in-out infinite alternate
+
+
+// custom global header {{{
+#top-editarea,#bottom-editarea
+  margin: 0 auto
+  width: 100%
+  // background-color: darken(header-bg-color, 20%)
+  background-color: rgba(43, 22, 8, 0.84)
+
+
+.custom-header--navigation
+  // same as #content
+  min-width: 320px
+  width: 72%  // 背景を設定するなら width: 80%
+  margin: auto
+  background-color: rgba(48, 21, 10, 0.4)
+
+.custom-header
+  margin: 0
+  padding: 0
+  list-style-type: none
+  text-align: left
+
+
+.custom-header__li
+  list-style-type: none
+  min-width: 80px
+  text-align: center
+  display: inline-block
+  vertical-align: middle
+  height: 40px
+  line-height: 37px
+  overflow: hidden
+  box-sizing: border-box
+  margin: 0 1px
+  background-color: #FFA21C
+  color: rich-white
+  border-top: 2px solid #2FBD87
+  border-bottom: 4px solid rgba(39, 39, 39, 0.18)
+  transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
+  &:hover
+    background-color: #5B111E
+    border-top: 2px solid #DFFA3D
+  a
+    display: inline-block
+    min-width: @min-width - 20px
+    height: 100%
+    padding: 0 10px
+    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    font-family: fonts-for-title
+    font-weight: normal
+    text-rendering: optimizeLegibility
+    color: inherit
+
+// }}}
