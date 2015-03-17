@@ -867,6 +867,9 @@ button-style-mixin()
 .sns-share--area li
   display: inline-block
   list-style-type: none
+  margin-right: 15px
+  &:last-child
+    margin-right: 0
 
 .sns-share--link
   display: block
@@ -876,7 +879,7 @@ button-style-mixin()
   height: 45px
   line-height: 47px
   text-align: center
-  margin-right: 15px
+  margin: 0
 
 
 .sns-share--bookmark
@@ -1444,6 +1447,11 @@ blockquote
     float: none
     width: 100%
 
+  .sns-share--area
+    text-align: center
+
+  .sns-share--area li
+    margin-right: 11px
 
 /* }}} */
 
