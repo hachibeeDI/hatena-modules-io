@@ -15,6 +15,7 @@ do () ->
   _makeUrlProp = (title, uri) ->
     print 'make url prop', uri, title
     anchor = $$CC 'a'
+    anchor.className = 'breadcrumb--urlprop'
     anchor.setAttribute 'itemprop', 'url'
     anchor.setAttribute 'href', uri
     titleElem = $$CC 'span'
@@ -38,10 +39,14 @@ do () ->
 
   ### 無制限にも実装出来るけど三つあれば充分っしょ ###
   _buildBreadcrumbFromHierarchy = (top) ->
-    print 'create Breadcrumb from ', top
-    unless top.children
+    _genHolder = () ->
       holder = _setupMetadataAsPlaceholder $$CC 'div'
       holder.appendChild _makeUrlProp top.title, top.uri
+      holder.className = 'breadcrumb--row'
+      holder
+
+    unless top.children
+      holder = _genHolder()
       holder.appendChild _makeThisPageProp()
       return [holder]
 
@@ -50,16 +55,14 @@ do () ->
       print 'create Breadcrumb second ', second
       if _.isEmpty second.children
         print 'second has no children', second
-        holder = _setupMetadataAsPlaceholder $$CC 'div'
-        holder.appendChild _makeUrlProp top.title, top.uri
+        holder = _genHolder()
         secondElem = _makeChildProp second.title, second.uri
         secondElem.appendChild _makeThisPageProp()
         holder.appendChild secondElem
         breadcrumbes.push holder
       else
         for third in second.children
-          holder = _setupMetadataAsPlaceholder $$CC 'div'
-          holder.appendChild _makeUrlProp top.title, top.uri
+          holder = _genHolder()
           secondElem = _makeChildProp second.title, second.uri
           thirdElem = _makeChildProp third.title, third.uri
           thirdElem.appendChild _makeThisPageProp()
@@ -119,6 +122,7 @@ do () ->
     BASE_URI = $('html').attr('data-blogs-uri-base')
 
     PLACE_HOLDER = $$Q '.categories'
+    PLACE_HOLDER.classList.add 'breadcrumb--root'
     # TODO: 記事ページ以外での終了処理
 
     categories = _parseHatenaCategoryElements PLACE_HOLDER
