@@ -1,5 +1,25 @@
 do () ->
 
+  isEntryPage = $('html').attr('data-page') == 'entry'
+  return unless isEntryPage
+
+  ###
+  example:
+    var _CATEGORY_DEFINITIONS = {
+      'programming': {
+        'JavaScript': ['jQuery', 'React', 'Vue'],
+        'Python': ['Django', 'Flask', 'numpy'],
+        'Haskell': []
+      },
+      'foods': {
+        'cooking': ['bread', 'meet'],
+        'alcohol': ['beer', 'wine']
+      }
+    }
+  ###
+  _CATEGORY_DEFINITIONS = window._CATEGORY_DEFINITIONS
+  return unless _CATEGORY_DEFINITIONS
+
   print = console.log.bind console
   $$CC = document.createElement.bind document
   $$Q = document.querySelector.bind document
@@ -77,22 +97,6 @@ do () ->
     _.map anchors, (elem) -> [elem.text, elem.href]
 
 
-  ###
-  example:
-    var _CATEGORY_DEFINITIONS = {
-      'programming': {
-        'JavaScript': ['jQuery', 'React', 'Vue'],
-        'Python': ['Django', 'Flask', 'numpy'],
-        'Haskell': []
-      },
-      'foods': {
-        'cooking': ['bread', 'meet'],
-        'alcohol': ['beer', 'wine']
-      }
-    }
-  ###
-  _CATEGORY_DEFINITIONS = window._CATEGORY_DEFINITIONS
-
   ### category: {title: uri} ###
   _parseHierarchy = (category) ->
     category_key = _.keys category
@@ -119,7 +123,7 @@ do () ->
 
 
   document.addEventListener 'DOMContentLoaded', () ->
-    BASE_URI = $('html').attr('data-blogs-uri-base')
+    # BASE_URI = $('html').attr('data-blogs-uri-base')
 
     PLACE_HOLDER = $$Q '.categories'
     PLACE_HOLDER.classList.add 'breadcrumb--root'
