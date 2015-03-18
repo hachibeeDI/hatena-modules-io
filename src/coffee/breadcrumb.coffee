@@ -58,13 +58,15 @@ do () ->
 
   ### 無制限にも実装出来るけど三つあれば充分っしょ ###
   _buildBreadcrumbFromHierarchy = (top) ->
+    # print 'build from top', top
     _genHolder = () ->
       holder = _setupMetadataAsPlaceholder $$CC 'div'
       holder.appendChild _makeUrlProp top.title, top.uri
       holder.className = 'breadcrumb--row'
       holder
 
-    unless top.children
+    if _.isEmpty top.children
+      # print 'create only top breadcrumb'
       holder = _genHolder()
       holder.appendChild _makeThisPageProp()
       return [holder]
@@ -89,6 +91,8 @@ do () ->
           holder.appendChild secondElem
           breadcrumbes.push holder
     breadcrumbes
+
+
   ### parse anchores as uri and title ###
   _parseHatenaCategoryElements = (parent) ->
     return unless parent
