@@ -141,6 +141,7 @@ do () ->
     PLACE_HOLDER.innerHTML = ''
     hierarchies = _parseHierarchy categories
     print 'hierarchies----', hierarchies
-    for h in hierarchies
+    # 2つあればいいよね
+    for h in _.first hierarchies, 2
       _buildBreadcrumbFromHierarchy(h).forEach (e) -> PLACE_HOLDER.appendChild e
 
