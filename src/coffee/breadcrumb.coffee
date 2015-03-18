@@ -1,6 +1,10 @@
 do () ->
+  print = console.log.bind console
+  $$CC = document.createElement.bind document
+  $$Q = document.querySelector.bind document
+  $$QA = document.querySelectorAll.bind document
 
-  isEntryPage = $('html').attr('data-page') == 'entry'
+  isEntryPage = $$Q('html').getAttribute('data-page') == 'entry'
   return unless isEntryPage
 
   ###
@@ -19,11 +23,6 @@ do () ->
   ###
   _CATEGORY_DEFINITIONS = window._CATEGORY_DEFINITIONS
   return unless _CATEGORY_DEFINITIONS
-
-  print = console.log.bind console
-  $$CC = document.createElement.bind document
-  $$Q = document.querySelector.bind document
-  $$QA = document.querySelectorAll.bind document
 
 
   _setupMetadataAsPlaceholder = (placeholder) ->
