@@ -1,5 +1,5 @@
 do () ->
-  print = console.log.bind console
+  # print = console.log.bind console
   $$CC = document.createElement.bind document
   $$Q = document.querySelector.bind document
   $$QA = document.querySelectorAll.bind document
@@ -32,7 +32,7 @@ do () ->
 
 
   _makeUrlProp = (title, uri) ->
-    print 'make url prop', uri, title
+    # print 'make url prop', uri, title
     anchor = $$CC 'a'
     anchor.className = 'breadcrumb--urlprop'
     anchor.setAttribute 'itemprop', 'url'
@@ -71,9 +71,9 @@ do () ->
 
     breadcrumbes = []
     for second in top.children
-      print 'create Breadcrumb second ', second
+      # print 'create Breadcrumb second ', second
       if _.isEmpty second.children
-        print 'second has no children', second
+        # print 'second has no children', second
         holder = _genHolder()
         secondElem = _makeChildProp second.title, second.uri
         secondElem.appendChild _makeThisPageProp()
@@ -114,7 +114,7 @@ do () ->
       hierarchies.push parentObj
 
     # undefined keys are all in parent hierarchy
-    print 'containedKeys', containedKeys
+    # print 'containedKeys', containedKeys
     definedParents = _.keys _CATEGORY_DEFINITIONS
     for key in category_key when not(key in containedKeys or key in definedParents)
       hierarchies.push 'title': key, 'uri': category[key]
@@ -129,7 +129,7 @@ do () ->
     # TODO: 記事ページ以外での終了処理
 
     categories = _parseHatenaCategoryElements PLACE_HOLDER
-    print categories
+    # print categories
     categories = categories.reduce(
       (x, y) ->
         x[y[0]] = y[1]
@@ -140,7 +140,7 @@ do () ->
     return if _.isEmpty categories
     PLACE_HOLDER.innerHTML = ''
     hierarchies = _parseHierarchy categories
-    print 'hierarchies----', hierarchies
+    # print 'hierarchies----', hierarchies
     # 2つあればいいよね
     for h in _.first hierarchies, 2
       _buildBreadcrumbFromHierarchy(h).forEach (e) -> PLACE_HOLDER.appendChild e
