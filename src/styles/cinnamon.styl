@@ -461,31 +461,8 @@ pre.code
   color: pre-statement
 // }}}
 
-
-white = #FFFFFF
-rich-white = #FEFEFE
-black = #454545
-blood-red = #B03645
-more-black = #171717
-gray = #B5B5B5
-light-gray = #EDEDED
-
-blue-black = #3C465C
-blue-gray = #557279
-twitter-blue = #55ACEE
-facebook-blue = #3274BD
-rss-green = #75CA1C
-pocket-pink = #E54889
-
-yellow-button-color = #FFBA1C
-
-link-color = #1487bd
-no-blue-link-color = #3F1C03
-base-color = #F4F3EC
-header-bg-color = #69553C
-
-fonts-for-title = 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
-
+@import '_colors'
+@import '_variables'
 
 // mixins {{{
 icon-font-style()
@@ -1020,6 +997,8 @@ height-of-global-header = 37px
 .categories
   margin: 0 auto 16px
   font-size 80%
+  font-weight: normal
+  font-family: fonts-for-title
   a
     border-radius: 3px
     color: #545454
@@ -1568,10 +1547,11 @@ center-width-in-tablet = 85%
     min-width: @min-width - 20px
     height: 100%
     padding: 0 10px
-    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
     font-family: fonts-for-title
     font-weight: normal
     text-rendering: optimizeLegibility
     color: inherit
 
 // }}}
+
+@import '_breadcrumb'
