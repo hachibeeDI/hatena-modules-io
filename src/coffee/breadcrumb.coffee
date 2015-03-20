@@ -153,8 +153,6 @@ do () ->
     # BASE_URI = $('html').attr('data-blogs-uri-base')
 
     PLACE_HOLDER = $$Q '.categories'
-    PLACE_HOLDER.classList.add 'breadcrumb--root'
-    # TODO: 記事ページ以外での終了処理
 
     categories = _parseHatenaCategoryElements PLACE_HOLDER
     # print categories
@@ -166,10 +164,15 @@ do () ->
       {}
     )
     return if _.isEmpty categories
-    PLACE_HOLDER.innerHTML = ''
+    # このタイミングならjQueryがロードされている
+    $PLACE_HOLDER = $ PLACE_HOLDER
+    $PLACE_HOLDER.hide()
+    root = document.createElement('div')
+    root.className = 'breadcrumb--root'
     hierarchies = _parseHierarchy categories
     # print 'hierarchies----', hierarchies
     # 2つあればいいよね
     for h in _.first hierarchies, 2
-      _buildBreadcrumbFromHierarchy(h).forEach (e) -> PLACE_HOLDER.appendChild e
+      _buildBreadcrumbFromHierarchy(h).forEach (e) -> root.appendChild e
+    $PLACE_HOLDER.after(root)
 
