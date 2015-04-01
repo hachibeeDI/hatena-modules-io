@@ -838,7 +838,7 @@ button-style-mixin()
 // 記事上カスタムシェアボタン {{{
 
 .sns-share--area
-  margin: auto
+  margin: 10px auto
   padding: 0
 
 .sns-share--area li
@@ -968,11 +968,13 @@ height-of-global-header = 37px
 
 .entry-header
   padding 0 0 10px 0
-  margin-bottom 30px
+  margin-bottom 25px
   position relative
 
 .entry-title
-  margin: 15px auto 25px auto
+  base-style-for-entry-header()
+  margin: 15px auto margin-bottom-for-entry-title auto
+  padding: 15px 0 10px
   line-height 1.2
   font-size: 210%
 
@@ -995,15 +997,21 @@ height-of-global-header = 37px
 //.date-day
 
 .categories
-  margin: 0 auto 16px
+  base-style-for-entry-header()
+  margin: -(margin-bottom-for-entry-title) auto auto
+  height: 40px
+  padding: 3px 0
   font-size 80%
   font-weight: normal
   font-family: fonts-for-title
   a
-    border-radius: 3px
-    color: #545454
-    border: 1px solid gray
-    background-color: light-gray
+    border-radius: 2px
+    color: more-black
+    border-top: 1px solid #840000
+    border-left: 2px solid burned-brown
+    border-right: 2px solid red
+    border-bottom: 2px solid blood-red
+    background-color: base-color
     margin-right: 3px
     padding 4px 6px
     text-decoration none
