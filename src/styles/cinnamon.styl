@@ -917,6 +917,7 @@ button-style-mixin()
 
 #box2-inner
   width: 95%
+  min-width: 310px  // for adsense
   margin: auto 0 auto auto
 
 
@@ -1406,26 +1407,13 @@ blockquote
     background-size: 20px 20px
 
 /* Media Queries - Tablet */
-center-width-in-tablet = 85%
+center-width-in-tablet = 95%
 @media (min-width: 768px) and (max-width: 1024px)
   #container #content
     width: center-width-in-tablet
 
-  #main
-    width: center-width-in-tablet
-    float: none
-
-  #box2
-    margin: 0 auto
+  #container #content-inner
     width: 95%
-
-  #box2-inner
-    width: 100%
-    margin: auto
-
-  .hatena-module
-    margin: 0 auto 30px
-    width: 70%
 
   .entry-header-menu
     top: 10px
@@ -1446,7 +1434,10 @@ center-width-in-tablet = 85%
     width: 100%
 
   #container #content
-    width: 85%
+    width: center-width-in-tablet
+
+  #container #content-inner
+    width: center-width-in-tablet
 
   #main
     width: 85%
@@ -1473,6 +1464,7 @@ center-width-in-tablet = 85%
 
   #blog-title-inner
     padding: 20px 0 25px
+    background-position: center !important
 
   .entry-title
     font-size: 190%
@@ -1485,6 +1477,10 @@ center-width-in-tablet = 85%
     float: none
     width: 100%
 
+  #box2-inner
+    width: 100%
+    margin: auto
+
   #blog-title
     margin-top: 0
   #title
@@ -1492,6 +1488,8 @@ center-width-in-tablet = 85%
   .header-image-enable #blog-title #blog-title-inner
     // はてなのglobal-header-cssが邪魔なので打ち消す
     height: auto!important
+    #title
+      margin: auto
   .custom-header--navigation
     display: none
   // .custom-header__li
