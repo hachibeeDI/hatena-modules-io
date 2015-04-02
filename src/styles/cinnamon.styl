@@ -1333,8 +1333,8 @@ blockquote
   color: #fff
 
 
-// custom global header {{{
-#top-editarea,#bottom-editarea
+// custom global header and footer {{{
+#top-editarea
   margin: 0 auto
   width: 100%
   // background-color: darken(header-bg-color, 20%)
@@ -1354,6 +1354,7 @@ blockquote
   list-style-type: none
   text-align: left
 
+
 .custom-header__li
   list-style-type: none
   min-width: 80px
@@ -1371,17 +1372,31 @@ blockquote
   border-bottom: 4px solid rgba(39, 39, 39, 0.18)
   transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
   &:hover
-    // background-color: darken(@background-color, 30%)
     background-color: #5B111E
     border-top: 2px solid #DFFA3D
   a
-    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    display: inline-block
+    min-width: @min-width - 20px
+    height: 100%
+    padding: 0 10px
+    font-family: fonts-for-title
     font-weight: normal
     text-rendering: optimizeLegibility
     color: inherit
 
+
 //}}}
 
+// custom bottom area {{{
+#bottom-editarea
+  margin: 50px auto 0
+  width: 100%
+  #custom-footer
+    min-width: 320px
+    width: 72%
+    margin: auto
+
+// }}}
 
 /* import media queries {{{ */
 /* Media Queries - for Retina Display */
