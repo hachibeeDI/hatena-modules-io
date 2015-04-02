@@ -917,7 +917,7 @@ button-style-mixin()
 
 #box2-inner
   width: 95%
-  min-width: 310px  // for adsense
+  min-width: 305px  // for adsense
   margin: auto 0 auto auto
 
 
@@ -1407,13 +1407,13 @@ blockquote
     background-size: 20px 20px
 
 /* Media Queries - Tablet */
-center-width-in-tablet = 95%
-@media (min-width: 768px) and (max-width: 1024px)
+center-width-in-tablet = 97%
+@media (max-width: 1024px)
   #container #content
     width: center-width-in-tablet
 
   #container #content-inner
-    width: 95%
+    width: 100%
 
   .entry-header-menu
     top: 10px
@@ -1421,6 +1421,11 @@ center-width-in-tablet = 95%
 
   .custom-header--navigation
     width: center-width-in-tablet
+
+@media (min-width: 768px)
+  #main
+    width: 405px
+
 
 /* Media Queries - Small Tablet & Smartphone */
 @media (max-width: 767px)
@@ -1440,7 +1445,7 @@ center-width-in-tablet = 95%
     width: center-width-in-tablet
 
   #main
-    width: 85%
+    width: 405px
     float: none
 
   #box2
@@ -1476,6 +1481,7 @@ center-width-in-tablet = 95%
   #box2
     float: none
     width: 100%
+    min-width: 310px
 
   #box2-inner
     width: 100%
