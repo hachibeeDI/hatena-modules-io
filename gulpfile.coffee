@@ -8,9 +8,8 @@ plumber = require 'gulp-plumber'
 
 gulp.task 'default', ['build']
 gulp.task 'build', [
-  'build:coffee'
-  'build:css'
   'compress:js'
+  'build:css'
   # 'build:web'
 ]
 
@@ -25,7 +24,7 @@ gulp.task 'build:css', () ->
       .pipe stylus compress: true
       .pipe gulp.dest 'dist/'
 
-gulp.task 'compress:js', ->
+gulp.task 'compress:js', ['build:coffee'], ->
   gulp.src 'temp/**/*.js'
       .pipe uglify()
       .pipe gulp.dest 'dist/'
