@@ -1,5 +1,5 @@
 gulp    = require 'gulp'
-# shell   = require 'gulp-shell'
+shell   = require 'gulp-shell'
 coffee  = require 'gulp-coffee'
 uglify = require('gulp-uglify')
 # sass    = require 'gulp-sass'
@@ -8,9 +8,8 @@ plumber = require 'gulp-plumber'
 
 gulp.task 'default', ['build']
 gulp.task 'build', [
-  'build:coffee'
-  'build:css'
   'compress:js'
+  'build:css'
   # 'build:web'
 ]
 
@@ -25,14 +24,22 @@ gulp.task 'build:css', () ->
       .pipe stylus compress: true
       .pipe gulp.dest 'dist/'
 
-gulp.task 'compress:js', ->
+gulp.task 'compress:js', ['build:bundle'], ->
   gulp.src 'temp/**/*.js'
       .pipe uglify()
       .pipe gulp.dest 'dist/'
 
-# gulp.task 'build:web', shell.task [
-#   'webpack'
-# ]
+
+source = require 'vinyl-source-stream'
+webpack = require('gulp-webpack')
+
+gulp.task 'build:bundle', shell.task [
+  'webpack'
+]
+
+
+gulp.task 'default', ['build']
+
 
 gulp.task 'watch', ['build'], ->
   gulp.watch 'src/**/*.coffee', ['build:coffee']

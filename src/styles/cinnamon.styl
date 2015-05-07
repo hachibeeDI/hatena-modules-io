@@ -917,6 +917,7 @@ button-style-mixin()
 
 #box2-inner
   width: 95%
+  min-width: 305px  // for adsense
   margin: auto 0 auto auto
 
 
@@ -964,16 +965,18 @@ height-of-global-header = 37px
 
 .entry
   position relative
-  margin-bottom 100px
+  margin-bottom 60px
 
 .entry-header
   padding 0 0 10px 0
   margin-bottom 25px
   position relative
+  border-top: 2px solid sulfur
+  border-bottom: @border-top
 
 .entry-title
   base-style-for-entry-header()
-  margin: 15px auto margin-bottom-for-entry-title auto
+  margin: 5px auto margin-bottom-for-entry-title auto
   padding: 15px 0 10px
   line-height 1.2
   font-size: 210%
@@ -1159,7 +1162,7 @@ blockquote
 
 .hatena-module
   font-size: 14px
-  margin-bottom 60px
+  margin-bottom 47px
 
 .hatena-module-title
   color: #204C73
@@ -1331,8 +1334,8 @@ blockquote
   color: #fff
 
 
-// custom global header {{{
-#top-editarea,#bottom-editarea
+// custom global header and footer {{{
+#top-editarea
   margin: 0 auto
   width: 100%
   // background-color: darken(header-bg-color, 20%)
@@ -1352,6 +1355,7 @@ blockquote
   list-style-type: none
   text-align: left
 
+
 .custom-header__li
   list-style-type: none
   min-width: 80px
@@ -1360,8 +1364,8 @@ blockquote
   vertical-align: middle
   height: 40px
   line-height: 37px
+  overflow: hidden
   box-sizing: border-box
-  padding: 0 10px
   margin: 0 1px
   background-color: #FFA21C
   color: rich-white
@@ -1369,17 +1373,31 @@ blockquote
   border-bottom: 4px solid rgba(39, 39, 39, 0.18)
   transition: background-color 0.3s ease-in 0, border-top 0.4s ease-out 0
   &:hover
-    // background-color: darken(@background-color, 30%)
     background-color: #5B111E
     border-top: 2px solid #DFFA3D
   a
-    font-family: 'Helvetica Neue', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    display: inline-block
+    min-width: @min-width - 20px
+    height: 100%
+    padding: 0 10px
+    font-family: fonts-for-title
     font-weight: normal
     text-rendering: optimizeLegibility
     color: inherit
 
+
 //}}}
 
+// custom bottom area {{{
+#bottom-editarea
+  margin: 50px auto 0
+  width: 100%
+  #custom-footer
+    min-width: 320px
+    width: 72%
+    margin: auto
+
+// }}}
 
 /* import media queries {{{ */
 /* Media Queries - for Retina Display */
@@ -1389,26 +1407,13 @@ blockquote
     background-size: 20px 20px
 
 /* Media Queries - Tablet */
-center-width-in-tablet = 85%
-@media (min-width: 768px) and (max-width: 1024px)
+center-width-in-tablet = 97%
+@media (max-width: 1024px)
   #container #content
     width: center-width-in-tablet
 
-  #main
-    width: center-width-in-tablet
-    float: none
-
-  #box2
-    margin: 0 auto
-    width: 95%
-
-  #box2-inner
+  #container #content-inner
     width: 100%
-    margin: auto
-
-  .hatena-module
-    margin: 0 auto 30px
-    width: 70%
 
   .entry-header-menu
     top: 10px
@@ -1416,6 +1421,11 @@ center-width-in-tablet = 85%
 
   .custom-header--navigation
     width: center-width-in-tablet
+
+@media (max-width: 768px)
+  #main
+    width: 405px
+
 
 /* Media Queries - Small Tablet & Smartphone */
 @media (max-width: 767px)
@@ -1429,10 +1439,13 @@ center-width-in-tablet = 85%
     width: 100%
 
   #container #content
-    width: 85%
+    width: center-width-in-tablet
+
+  #container #content-inner
+    width: center-width-in-tablet
 
   #main
-    width: 85%
+    width: 405px
     float: none
 
   #box2
@@ -1456,6 +1469,7 @@ center-width-in-tablet = 85%
 
   #blog-title-inner
     padding: 20px 0 25px
+    background-position: center !important
 
   .entry-title
     font-size: 190%
@@ -1467,6 +1481,11 @@ center-width-in-tablet = 85%
   #box2
     float: none
     width: 100%
+    min-width: 310px
+
+  #box2-inner
+    width: 100%
+    margin: auto
 
   #blog-title
     margin-top: 0
@@ -1475,6 +1494,8 @@ center-width-in-tablet = 85%
   .header-image-enable #blog-title #blog-title-inner
     // はてなのglobal-header-cssが邪魔なので打ち消す
     height: auto!important
+    #title
+      margin: auto
   .custom-header--navigation
     display: none
   // .custom-header__li
@@ -1510,25 +1531,6 @@ center-width-in-tablet = 85%
 
 
 // custom global header {{{
-#top-editarea,#bottom-editarea
-  margin: 0 auto
-  width: 100%
-  // background-color: darken(header-bg-color, 20%)
-  background-color: rgba(43, 22, 8, 0.84)
-
-
-.custom-header--navigation
-  // same as #content
-  min-width: 320px
-  width: 72%  // 背景を設定するなら width: 80%
-  margin: auto
-  background-color: rgba(48, 21, 10, 0.4)
-
-.custom-header
-  margin: 0
-  padding: 0
-  list-style-type: none
-  text-align: left
 
 
 .custom-header__li
