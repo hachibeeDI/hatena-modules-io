@@ -24,7 +24,7 @@ gulp.task 'build:css', () ->
       .pipe stylus compress: true
       .pipe gulp.dest 'dist/'
 
-gulp.task 'compress:js', ['build:bundle'], ->
+gulp.task 'compress:js', ['build:coffee', 'build:bundle'], ->
   gulp.src 'temp/**/*.js'
       .pipe uglify()
       .pipe gulp.dest 'dist/'
