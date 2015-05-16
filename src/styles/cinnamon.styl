@@ -661,6 +661,8 @@ th
 td
   background-color: rich-white
 
+@import '_urllist-with-thumbnail'
+
 // class of link-list for articles
 .hatena-urllist a,
 .urllist-title-link,
@@ -675,10 +677,6 @@ archive-module-month-title
 .urllist-item-inner
   overflow: hidden
 
-.entries-access-ranking-item:hover
-  background-color: #F7F5F0
-  // transition: background-color 1s ease-in 0
-
 .entries-access-ranking-title-link
   font-weight: normal
   font-family: fonts-for-title
@@ -690,9 +688,10 @@ archive-module-month-title
 // .urllist-image-link
 //   // pass
 
-.entries-access-ranking-categories
+.urllist-categories
   visibility: visible
-  margin: 2px auto 20px
+  margin: 2px auto 10px
+  text-align: justify
 
 .urllist-category-link
   display: inline-block
@@ -700,7 +699,7 @@ archive-module-month-title
   background-color: #EFD48B
   border: 1px solid #EDB22E
   padding: 2px 4px 0 4px
-  margin-right: 5px
+  margin: 3px 2px
 
 // .urllist-entry-body entries-access-ranking-entry-body
 //   // pass
