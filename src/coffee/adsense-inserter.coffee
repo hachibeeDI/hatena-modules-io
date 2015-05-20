@@ -16,9 +16,6 @@ do ($$D=document) ->
           style="display:inline-block;width:300px;height:250px"
           data-ad-client="ca-pub-2840889474156734"
           data-ad-slot="7162362001"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </#{ END_SCRIPT_TAG }>
       </div>
       """,
     ]
@@ -31,7 +28,9 @@ do ($$D=document) ->
         [area, content] = z
         return unless content?
         area.insertAdjacentHTML('afterend', content)
+        initializer = $$D.createElement('script')
+        initializer.innerHTML = '(adsbygoogle = window.adsbygoogle || []).push({});'
+        area.nextSibling.appendChild(initializer)
       )
-    # console.log 'zzzzzzzzzzzzzzzzzzzzzzzzzzz'
   )
 
