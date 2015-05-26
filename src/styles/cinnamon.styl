@@ -995,13 +995,28 @@ height-of-global-header = 37px
   line-height 1.2
   font-size: 210%
 
+// 日付 {{{
+date-bg = rgb(119, 75, 70)
 .date
   margin: auto
   text-align: left
   a
-    color: #545454
     display: inline-block
-    padding: 4px
+    padding: 4px 2px
+    background-color: date-bg
+    width: 110px
+    text-align: center
+    border-radius: 3px
+  time
+    background-color: date-bg
+    border: dashed 1px #fff
+    display: block
+    width: 95%
+    border-radius: 2px
+    margin: auto
+    color: #fff
+
+//}}}
 
 // inner of .date
 //.date-year
@@ -1015,7 +1030,8 @@ height-of-global-header = 37px
 
 .categories
   base-style-for-entry-header()
-  margin: -(margin-bottom-for-entry-title) auto auto
+  // margin: -(margin-bottom-for-entry-title) auto auto
+  margin: auto
   height: 40px
   padding: 3px 0
   font-size 80%
