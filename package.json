@@ -18,7 +18,8 @@
   "homepage": "https://github.com/hachibeeDI/hatena-modules-io",
   "dependencies": {
     "coffee-script": "^1.9.1",
-    "node-waves": "^0.7.2"
+    "node-waves": "^0.7.2",
+    "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
     "coffee-loader": "^0.7.2",
