@@ -1,12 +1,16 @@
+@import '_colors'
+
+
 .urllist-with-thumbnails
   .urllist-item
     position: relative
-    min-height: 170px
+    min-height: 180px
 
   .urllist-item-inner
     position: absolute
     z-index: 0
     width: 100%
+    max-width: 380px
     height: 100%
     margin: auto
 
@@ -23,10 +27,10 @@
     padding: 15px 10px 0
     text-align: center
     text-rendering: optimizeLegibility
-    font-size: 23px
-    line-height: 25px
+    font-size: 26px
+    line-height: 27px
     text-overflow: ellipsis
-    color: #fff !important
+    color: base-color !important
     background: radial-gradient(rgba(6, 47, 76, 0.04), rgba(3, 20, 37, 0.8))
 
   .urllist-title:hover
@@ -36,10 +40,28 @@
     position: absolute
     z-index: 500003
     width: 100%
-    padding: 0 5px
+    max-height: 55%
     box-sizing: border-box
     bottom: 0
+    padding: 0 5px
 
   .urllist-item
     position: relative
     min-height: 170px
+
+  .urllist-category-link
+    background: none
+    border: none
+    color: rgba(23, 224, 232, 0.79)
+    font-family: Futura, 'Century Gothic', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Meiryo, sans-serif
+    font-weight: bold
+    font-size: 15px
+    margin: 0
+    padding: 0
+    &:first-child
+      font-size: 23px
+      color: rgba(250, 82, 32, 0.94)
+    &:nth-child(2)
+      color: rgba(195, 255, 17, 0.83)
+    &:nth-child(3)
+      color: rgba(17, 240, 105, 0.97)
