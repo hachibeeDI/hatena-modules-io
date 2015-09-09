@@ -3,7 +3,6 @@ do ($$D=document) ->
   $$QA = $$D.querySelectorAll.bind document
   TYPE_THIS_PAGE = $$Q('html').getAttribute('data-page')
   VALID_PAGES = ['index', 'archive']
-  END_SCRIPT_TAG = 'script'
 
   $$D.addEventListener('DOMContentLoaded', (eve) ->
     # console.log 'aaaaaaaaaaaaaaaaaaaaaaa'
@@ -11,7 +10,7 @@ do ($$D=document) ->
     return unless _.contains(VALID_PAGES, TYPE_THIS_PAGE)
     CONTENTS = [
       """
-      <div style="margin: 20px auto 5px">
+      <div style="margin: 25px auto 25px">
         <ins class="adsbygoogle"
           style="display:inline-block;width:300px;height:250px"
           data-ad-client="ca-pub-2840889474156734"
@@ -19,7 +18,9 @@ do ($$D=document) ->
       </div>
       """,
     ]
-    CONTAINER_AREAES = if TYPE_THIS_PAGE == 'index' then $$QA('.entry-footer') else $$QA('.archive-entry')
+    # entryFooters = $$QA('.entry-footer')
+    seeMoreButtons = $$QA('.entry-see-more')
+    CONTAINER_AREAES = if TYPE_THIS_PAGE == 'index' then seeMoreButtons else $$QA('.archive-entry')
     return unless CONTAINER_AREAES?
     _.chain(CONTAINER_AREAES)
       .zip(CONTENTS)
