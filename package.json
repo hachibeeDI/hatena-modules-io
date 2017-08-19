@@ -17,21 +17,22 @@
   },
   "homepage": "https://github.com/hachibeeDI/hatena-modules-io",
   "dependencies": {
-    "coffee-script": "^1.9.1",
-    "node-waves": "^0.7.2",
+    "coffee-script": "^1.12.7",
+    "node-waves": "^0.7.5",
     "vinyl-source-stream": "^1.1.0"
   },
   "devDependencies": {
-    "coffee-loader": "^0.7.2",
+    "coffee-loader": "^0.7.3",
     "css-loader": "^0.12.0",
-    "gulp-coffee": "^2.3.1",
-    "gulp-plumber": "^1.0.0",
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.4",
+    "gulp-plumber": "^1.1.0",
     "gulp-shell": "^0.4.1",
-    "gulp-stylus": "^2.0.1",
-    "gulp-uglify": "^1.1.0",
+    "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^1.5.4",
     "gulp-webpack": "^1.4.0",
-    "loader-utils": "^0.2.7",
+    "loader-utils": "^0.2.17",
     "style-loader": "^0.12.2",
-    "webpack": "^1.8.11"
+    "webpack": "^1.15.0"
   }
 }
